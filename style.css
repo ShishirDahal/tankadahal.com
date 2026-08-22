@@ -3803,3 +3803,465 @@ main {
         min-height: 350px;
     }
 }
+/* =========================================================
+   MOBILE-FIRST POLISH — 2026
+   Keeps the desktop design intact and fixes mobile spacing,
+   stacking and oversized cards.
+   ========================================================= */
+
+@media (max-width: 800px) {
+    /* ---------- HOME / HERO ---------- */
+    .hero {
+        min-height: auto;
+        height: auto;
+        padding: 105px 6vw 34px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .hero-copy {
+        width: 100%;
+        position: relative;
+        z-index: 6;
+    }
+
+    .hero h1 {
+        font-size: clamp(52px, 15vw, 78px);
+        line-height: .92;
+        max-width: 100%;
+        overflow-wrap: normal;
+    }
+
+    .greeting {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .tagline {
+        font-size: clamp(20px, 5.5vw, 26px);
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.65;
+        max-width: 100%;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+    }
+
+    .btn {
+        height: 46px;
+        padding: 0 16px;
+        gap: 12px;
+        font-size: 12px;
+    }
+
+    /* Keep the portrait behind the copy, but don't let the cards cover
+       the face. It becomes a visual backdrop rather than a layout column. */
+    .hero-person {
+        position: absolute;
+        top: 185px;
+        right: -22%;
+        width: 82%;
+        height: 430px;
+        z-index: 1;
+        opacity: .20;
+    }
+
+    .hero-photo {
+        width: 100%;
+        height: 100%;
+        object-position: center 12%;
+    }
+
+    .portrait-glow {
+        width: 80%;
+        height: 70%;
+        top: 5%;
+        right: 0;
+    }
+
+    /* IMPORTANT: stats are no longer absolutely anchored to the bottom of
+       the viewport. They participate in normal document flow, so they can
+       never cover the hero heading/face. */
+    .stats {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        min-width: 0;
+        margin: 34px 0 0;
+        padding: 8px 5px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-radius: 16px;
+        z-index: 8;
+    }
+
+    .stat {
+        min-width: 0;
+        padding: 10px 5px;
+    }
+
+    .stat-icon {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 5px;
+        border-radius: 9px;
+    }
+
+    .brand {
+        font-size: 20px;
+    }
+
+    .stat strong {
+        font-size: 17px;
+    }
+
+    .stat span {
+        font-size: 9px;
+        margin-top: 3px;
+        white-space: normal;
+        line-height: 1.25;
+    }
+
+    .stat:nth-child(2n) {
+        border-right: 0;
+    }
+
+    /* Feature cards now follow the stats instead of being pinned to the
+       bottom of the hero. Show all four in a compact single-column stack. */
+    .feature-strip {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: 16px;
+        padding: 15px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        z-index: 8;
+    }
+
+    .feature-strip article,
+    .feature-strip article:nth-child(n+2) {
+        display: grid !important;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+        padding: 0 !important;
+        border-right: 0;
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .feature-strip h3 {
+        font-size: 14px;
+        margin: 0 0 4px;
+    }
+
+    .feature-strip p {
+        font-size: 10px;
+        line-height: 1.5;
+        margin-bottom: 5px;
+    }
+
+    .feature-strip a {
+        font-size: 10px;
+    }
+
+    .scroll-cue {
+        display: none;
+    }
+
+    /* ---------- GENERAL SECTIONS ---------- */
+    .content-section {
+        padding: 78px 6vw;
+    }
+
+    .section-label {
+        left: 6vw;
+        top: 28px;
+    }
+
+    .content-section h2 {
+        font-size: clamp(38px, 11vw, 54px);
+    }
+
+    /* ---------- EXPERTISE ---------- */
+    .expertise-section {
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+    .expertise-header {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* ---------- JOURNEY ---------- */
+    .journey-section {
+        padding: 65px 4vw !important;
+    }
+
+    .journey-image-wrap {
+        width: 100% !important;
+    }
+
+    /* ---------- VIDEOS ---------- */
+    .videos-intro {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+
+    .videos-title {
+        font-size: clamp(38px, 10vw, 54px) !important;
+    }
+
+    .videos-description p {
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+    }
+
+    .videos-intro-image {
+        width: min(100%, 520px);
+        margin: 0 auto;
+    }
+
+    .videos-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-inner {
+        width: calc(100% - 32px) !important;
+    }
+
+    .contact-title {
+        font-size: clamp(36px, 10vw, 54px) !important;
+        line-height: 1 !important;
+    }
+
+    .contact-cards {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    .contact-card {
+        padding: 24px !important;
+    }
+
+    /* ---------- IMAGE-BASED SECTIONS ---------- */
+    .design-section > img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* 650px is where the About section becomes compact. */
+@media (max-width: 650px) {
+    /* ---------- ABOUT ---------- */
+    .about-section {
+        padding: 65px 0 75px !important;
+    }
+
+    .about-section .about-layout,
+    .about-section .about-panels {
+        width: calc(100% - 28px) !important;
+    }
+
+    .about-layout {
+        gap: 26px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .about-hero {
+        width: 100% !important;
+        max-width: none !important;
+        aspect-ratio: 4 / 5 !important;
+        border-radius: 14px;
+    }
+
+    .about-hero-title {
+        left: 18px !important;
+        right: 16px !important;
+        bottom: 18px !important;
+    }
+
+    .about-hero-title .eyebrow {
+        font-size: 8px !important;
+        letter-spacing: .16em !important;
+        margin-bottom: 9px !important;
+    }
+
+    .about-hero-title h2 {
+        font-size: clamp(34px, 10vw, 50px) !important;
+    }
+
+    .about-intro {
+        padding-left: 14px !important;
+    }
+
+    .about-intro .about-lead {
+        font-size: 17px !important;
+        line-height: 1.5 !important;
+    }
+
+    .about-intro p {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Two compact columns instead of one giant card per screen. */
+    .about-panels {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        margin-top: 28px !important;
+    }
+
+    .about-panel,
+    .about-panel img {
+        min-height: 0 !important;
+        height: auto !important;
+        aspect-ratio: 3 / 4;
+    }
+
+    .about-panel {
+        border-radius: 12px !important;
+    }
+
+    .about-panel:hover {
+        transform: translateY(-4px) scale(1.01) !important;
+    }
+}
+
+/* Extra-small phones: make every component breathe without creating
+   horizontal overflow. */
+@media (max-width: 420px) {
+    .site-header {
+        padding: 0 18px !important;
+    }
+
+    .avatar {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    .identity {
+        gap: 10px !important;
+        min-width: 0 !important;
+    }
+
+    .identity b {
+        font-size: 11px !important;
+    }
+
+    .hero {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+        padding-top: 96px !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 15vw, 64px) !important;
+    }
+
+    .hero-person {
+        top: 170px;
+        right: -28%;
+        width: 92%;
+        height: 390px;
+        opacity: .16;
+    }
+
+    .stats {
+        margin-top: 28px;
+        padding: 6px 3px;
+    }
+
+    .stat {
+        padding: 8px 3px;
+    }
+
+    .stat-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .stat strong {
+        font-size: 15px;
+    }
+
+    .stat span {
+        font-size: 8px;
+    }
+
+    .feature-strip {
+        padding: 13px;
+    }
+
+    .feature-strip article,
+    .feature-strip article:nth-child(n+2) {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 9px;
+    }
+
+    .feature-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .content-section {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+
+    .expertise-section {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+
+    .expertise-grid {
+        gap: 7px !important;
+    }
+
+    .about-section .about-layout,
+    .about-section .about-panels {
+        width: calc(100% - 20px) !important;
+    }
+
+    .about-panels {
+        gap: 6px !important;
+    }
+
+    .about-panel,
+    .about-panel img {
+        aspect-ratio: 4 / 5;
+    }
+
+    .videos-section,
+    .contact-section {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+}
